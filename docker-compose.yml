@@ -1,0 +1,44 @@
+version: "3"
+services:
+  url-shortener-frontend:
+    build:
+      context: ./frontend/
+      dockerfile: ./Dockerfile.dev
+      args:
+        API_URI: ${BACKEND_URL}/graphql/
+    environment:
+      - PORT=5001
+      - REACT_APP_API_URI=${BACKEND_URL}/graphql/
+    restart: unless-stopped
+    volumes:
+      - ./frontend/:/app/
+    ports:
+      - 5001:5001
+
+  url-shortener-backend:
+    build:
+      context: ./backend/
+      dockerfile: ./Dockerfile.dev
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgres://edward:edward@url-shortener-db/edward
+      - DOMAIN=${BACKEND_URL}
+    depends_on:
+      - url-shortener-db
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend/:/app/
+
+  url-shortener-db:
+    image: library/postgres:11.1-alpine
+    restart: unless-stopped
+    volumes:
+      - url-shortener-db:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=edward
+      - POSTGRES_PASSWORD=edward
+
+volumes:
+  url-shortener-db:
+    driver: local
