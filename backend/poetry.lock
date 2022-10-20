@@ -115,20 +115,6 @@ python-versions = ">=3.6,<4"
 graphql-core = ">=3.2,<3.3"
 
 [[package]]
-name = "gunicorn"
-version = "20.1.0"
-description = "WSGI HTTP Server for UNIX"
-category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[package.extras]
-eventlet = ["eventlet (>=0.24.1)"]
-gevent = ["gevent (>=1.4.0)"]
-setproctitle = ["setproctitle"]
-tornado = ["tornado (>=0.2)"]
-
-[[package]]
 name = "promise"
 version = "2.3"
 description = "Promises/A+ implementation for Python"
@@ -176,8 +162,8 @@ python-versions = ">=2"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "3.8"
-content-hash = "915b2387b934b307679dcede8d153a5c477a5d22af0af98fae529eb16a7b924c"
+python-versions = "^3.8"
+content-hash = "fcf58bb26ec95d20f5ae1737a83775e1aa1795c221c12049d93ab5f3ce13c384"
 
 [metadata.files]
 aniso8601 = []
@@ -189,7 +175,6 @@ graphene = []
 graphene-django = []
 graphql-core = []
 graphql-relay = []
-gunicorn = []
 promise = []
 six = []
 sqlparse = []
