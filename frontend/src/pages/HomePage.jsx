@@ -17,9 +17,9 @@ function HomePage() {
   );
 
   const { data, fetching, error } = res;
-  if (error) alert(error.message);
+  console.log(error);
 
-  if (data) {
+  if (!error && data) {
     console.log(data);
     generated_url =
       process.env.REACT_APP_API_FRONTEND_URL + "/" + data.generateUrl.url.id;
@@ -46,6 +46,7 @@ function HomePage() {
                   type="text"
                   placeholder="URL"
                 />
+                {error && <div className="text-red-600">{error.message}</div>}
               </div>
               <input
                 type="submit"
