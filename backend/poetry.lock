@@ -35,6 +35,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-cors-headers"
+version = "3.13.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django-graphql-playground"
 version = "1.0"
 description = "Apollo GraphQL Playground as a Django view"
@@ -196,12 +207,13 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "bf6aea10395361f8ddc409660fde31b66f298261018607ec8be1659ead354f07"
+content-hash = "099d04abd8b7a80e0c67a43937281a7159af4ab355cc4264b50eb41bf1523b5a"
 
 [metadata.files]
 aniso8601 = []
 asgiref = []
 django = []
+django-cors-headers = []
 django-graphql-playground = []
 graphene = []
 graphene-django = []

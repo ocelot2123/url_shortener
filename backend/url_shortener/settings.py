@@ -29,8 +29,11 @@ DEBUG = True
 DOMAIN = os.environ.get("DOMAIN")
 BACKEND_URL = os.environ.get("BACKEND_URL")
 API_URL = BACKEND_URL + "/graphql/"
-ALLOWED_HOSTS = [DOMAIN]
+# ALLOWED_HOSTS = [DOMAIN]
 
+#SETTINGS FOR MVP ONLY, DO NOT USE IN PRODUCTION
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -44,11 +47,13 @@ INSTALLED_APPS = [
     'url_shortener.models.url',
     'graphql_playground',
     'graphene_django',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

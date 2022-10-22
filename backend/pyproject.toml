@@ -10,6 +10,7 @@ graphene-django = "^2.15.0"
 django-graphql-playground = "^1.0"
 graphene-federation = "^0.2.0"
 Django = "^3.2"
+django-cors-headers = "^3.13.0"
 
 [tool.poetry.dev-dependencies]
 
