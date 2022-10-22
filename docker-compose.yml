@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgres://edward:edward@url-shortener-db/edward
-      - DOMAIN=${BACKEND_URL}
+      - DOMAIN=${DOMAIN}
     depends_on:
       - url-shortener-db
     ports:
