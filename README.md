@@ -22,7 +22,6 @@ https://user-images.githubusercontent.com/15928184/197339571-709843a9-2d0b-48dc-
 
 ## Requirements
 1. [Docker](https://docs.docker.com/install/)
-2. [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## How to run it?
 1. Clone the repository:
