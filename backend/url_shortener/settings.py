@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-ms^2^xk_o2cq6&_ghz+x+aq$u-i$2_%aj2-b8d%a=7fpl#hqq^
 DEBUG = True
 
 DOMAIN = os.environ.get("DOMAIN")
+BACKEND_URL = os.environ.get("BACKEND_URL")
+API_URL = BACKEND_URL + "/graphql/"
 ALLOWED_HOSTS = [DOMAIN]
 
 
@@ -39,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'url_shortener.models.url'
+    'url_shortener.models.url',
+    'graphql_playground',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [

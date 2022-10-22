@@ -23,6 +23,7 @@ services:
     environment:
       - DATABASE_URL=postgres://edward:edward@url-shortener-db/edward
       - DOMAIN=${DOMAIN}
+      - BACKEND_URL=${BACKEND_URL}
     depends_on:
       - url-shortener-db
     ports:

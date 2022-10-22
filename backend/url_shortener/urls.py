@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
+from graphql_playground.views import GraphQLPlaygroundView
+from url_shortener.settings import API_URL
+from url_shortener.api import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(schema=schema)), name="api"),
+    path(
+        "playground/",
+        GraphQLPlaygroundView.as_view(endpoint=API_URL),
+    ),
 ]

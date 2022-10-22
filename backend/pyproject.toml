@@ -6,9 +6,10 @@ authors = ["Edward Fu <edwardfu850808@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^4.1.2"
-graphene-django = "^3.0.0"
+graphene-django = "^2.15.0"
 django-graphql-playground = "^1.0"
+graphene-federation = "^0.2.0"
+Django = "^3.2"
 
 [tool.poetry.dev-dependencies]
 
