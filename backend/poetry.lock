@@ -18,6 +18,17 @@ python-versions = ">=3.7"
 tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
+name = "dj-database-url"
+version = "1.0.0"
+description = "Use Database URLs in your Django Application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">3.2"
+
+[[package]]
 name = "django"
 version = "3.2.16"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
@@ -150,6 +161,14 @@ six = "*"
 test = ["pytest (>=2.7.3)", "pytest-cov", "coveralls", "futures", "pytest-benchmark", "mock"]
 
 [[package]]
+name = "psycopg2-binary"
+version = "2.9.4"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pytz"
 version = "2022.5"
 description = "World timezone definitions, modern and historical"
@@ -207,11 +226,12 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "099d04abd8b7a80e0c67a43937281a7159af4ab355cc4264b50eb41bf1523b5a"
+content-hash = "59790fa875f7892b8c7ba535fc22b33a87a160de90075217a5ff80eec1a4755b"
 
 [metadata.files]
 aniso8601 = []
 asgiref = []
+dj-database-url = []
 django = []
 django-cors-headers = []
 django-graphql-playground = []
@@ -221,6 +241,7 @@ graphene-federation = []
 graphql-core = []
 graphql-relay = []
 promise = []
+psycopg2-binary = []
 pytz = []
 rx = []
 singledispatch = []
