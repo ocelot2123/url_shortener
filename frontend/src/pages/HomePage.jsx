@@ -1,16 +1,15 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import "../App.css";
+import styles from "../Home.module.css";
 import { useMutation } from "urql";
 import { GENERATE_URL } from "../api/mutations";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
-const Home: NextPage = () => {
+function HomePage() {
   const { register, handleSubmit } = useForm();
   const [res, executeMutation] = useMutation(GENERATE_URL);
   const onSubmit = useCallback(
-    (data: any) => {
+    (data) => {
       console.log(data);
       console.log(process.env.NEXT_PUBLIC_API_URI);
       executeMutation({ input: data.url });
@@ -23,12 +22,6 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Omni URL Shortener</title>
-        <meta name="description" content="Omni URL Shortener" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <h1 className="text-4xl font-semibold mb-6 text-center">
           Omni URL Shortener
@@ -60,6 +53,6 @@ const Home: NextPage = () => {
       </main>
     </div>
   );
-};
+}
 
-export default Home;
+export default HomePage;
