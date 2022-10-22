@@ -8,7 +8,8 @@ services:
         API_URI: ${BACKEND_URL}/graphql/
     environment:
       - PORT=5001
-      - NEXT_PUBLIC_API_URI=${BACKEND_URL}/graphql/
+      - REACT_APP_API_URI=${BACKEND_URL}/graphql/
+      - REACT_APP_API_FRONTEND_URL=${FRONTEND_URL}
     restart: unless-stopped
     volumes:
       - ./frontend/:/app/

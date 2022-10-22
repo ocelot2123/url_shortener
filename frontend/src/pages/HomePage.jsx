@@ -6,12 +6,11 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 
 function HomePage() {
+  let generated_url;
   const { register, handleSubmit } = useForm();
   const [res, executeMutation] = useMutation(GENERATE_URL);
   const onSubmit = useCallback(
     (data) => {
-      console.log(data);
-      console.log(process.env.NEXT_PUBLIC_API_URI);
       executeMutation({ input: data.url });
     },
     [executeMutation]
@@ -19,6 +18,12 @@ function HomePage() {
 
   const { data, fetching, error } = res;
   if (error) alert(error.message);
+
+  if (data) {
+    console.log(data);
+    generated_url =
+      process.env.REACT_APP_API_FRONTEND_URL + "/" + data.generateUrl.url.id;
+  }
 
   return (
     <div className={styles.container}>
@@ -29,7 +34,7 @@ function HomePage() {
         <div className="box-border h-60 w-2/4 p-4 border-4 rounded-lg border-white min-w-[250px]">
           <div className="w-full max-w-xs mx-auto">
             <form
-              className="shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              className="shadow-md rounded px-8 pt-6 pb-8"
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="mb-4">
@@ -49,6 +54,14 @@ function HomePage() {
               />
             </form>
           </div>
+          {generated_url && (
+            <div className="text-center text-lg text-green-300">
+              {"Shortened URL: "}
+              <a href={generated_url} target="_blank" rel="noreferrer">
+                {generated_url}
+              </a>
+            </div>
+          )}
         </div>
       </main>
     </div>
