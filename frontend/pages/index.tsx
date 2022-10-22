@@ -12,8 +12,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className="text-4xl font-semibold mb-6">Omni URL Shortener</h1>
-        <div className="box-border h-60 w-2/4 p-4 border-4 rounded-lg border-white">
+        <h1 className="text-4xl font-semibold mb-6 text-center">
+          Omni URL Shortener
+        </h1>
+        <div className="box-border h-60 w-2/4 p-4 border-4 rounded-lg border-white min-w-[250px]">
           <div className="w-full max-w-xs mx-auto">
             <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
               <div className="mb-4">
